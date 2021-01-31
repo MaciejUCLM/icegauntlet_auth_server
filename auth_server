@@ -104,7 +104,7 @@ class AuthenticationI(IceGauntlet.Authentication):
     def getOwner(self, token, current=None):
         '''Returns owner of the token'''
         for user in self._users_:
-            if user[CURRENT_TOKEN] == token:
+            if self._users_[user][CURRENT_TOKEN] == token:
                 return user
         raise IceGauntlet.Unauthorized()
 
